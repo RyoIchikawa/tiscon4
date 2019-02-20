@@ -52,7 +52,7 @@ public class Tiscon4DomainBean {
     private String zipCode;
 
     /** 住所 */
-    @SystemChar(charsetDef = "全角文字", message = "{domain.illegalCharacter}")
+//    @SystemChar(charsetDef = "全角文字", message = "{domain.illegalCharacter}")
     @Length(max = 255)
     private String address;
 

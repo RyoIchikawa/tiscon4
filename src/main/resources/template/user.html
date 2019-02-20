@@ -122,34 +122,35 @@
                                     </div>
                                 </td>
                             </tr>
+
                             <tr>
                                 <td>
-                                    <label>郵便番号（半角）</label>
+                                    <label>郵便番号（半角）ご住所（全角）</label>
                                     <p style="color:red;">＊</p>
+
                                 </td>
+
+
+
                                 <td>
-                                    <p>例：123-4567</p>
-                                    <div class="field" th:classappend="${errors.hasError('zipCode')} ? 'error'">
-                                        <input type="text" class="zipcode" name="zipCode" th:value="${form.zipCode}"/>
-                                        <p th:if="${errors.hasError('zipCode')}"
-                                           th:text="${errors.getMessage('zipCode')}" class="error-message">
-                                        </p>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label>ご住所（全角）</label>
-                                    <p style="color:red;">＊</p>
-                                </td>
-                                <td>
-                                    <p>例：東京都新宿区西新宿８－１７－１</p>
-                                    <div class="field" th:classappend="${errors.hasError('address')} ? 'error'">
-                                        <input type="text" name="address" th:value="${form.address}"/>
-                                        <p th:if="${errors.hasError('address')}"
-                                           th:text="${errors.getMessage('address')}" class="error-message">
-                                        </p>
-                                    </div>
+                                    <script src="https://ajaxzip3.github.io/ajaxzip3.js"></script>
+                                    <form>
+                                        <label>郵便番号(ハイフンもOK)</label>
+                                        <div class="field" th:classappend="${errors.hasError('zipCode')} ? 'error'">
+                                            <input type="text" class="zipcode" name="zipCode" th:value="${form.zipCode}" onKeyUp="AjaxZip3.zip2addr(this,'','address','address');"/>
+                                            <p th:if="${errors.hasError('zipCode')}"
+                                               th:text="${errors.getMessage('zipCode')}" class="error-message">
+                                            </p>
+                                        </div>
+
+                                        <label>ご住所（都道府県・市区町村は郵便番号から自動入力）</label>
+                                        <div class="field" th:classappend="${errors.hasError('address')} ? 'error'">
+                                            <input type="text" name="address" th:value="${form.address}"/>
+                                            <p th:if="${errors.hasError('address')}"
+                                               th:text="${errors.getMessage('address')}" class="error-message">
+                                            </p>
+                                        </div>
+
                                 </td>
                             </tr>
                             <tr>
