@@ -53,6 +53,42 @@ public class OrderAction {
         return new HttpResponse("acceptance.html");
     }
 
+    public HttpResponse treatall(HttpRequest req, ExecutionContext ctx) {
+        IndexForm indexForm = ctx.getRequestScopedVar("form");
+        InsuranceOrder insOrder = BeanUtil.createAndCopy(InsuranceOrder.class, indexForm);
+
+        SessionUtil.delete(ctx, "insOrder");
+        SessionUtil.put(ctx, "insOrder", insOrder);
+
+        ctx.setRequestScopedVar("form", new AcceptForm());
+
+        return new HttpResponse("treat.html");
+    }
+
+    public HttpResponse ladyall(HttpRequest req, ExecutionContext ctx) {
+        IndexForm indexForm = ctx.getRequestScopedVar("form");
+        InsuranceOrder insOrder = BeanUtil.createAndCopy(InsuranceOrder.class, indexForm);
+
+        SessionUtil.delete(ctx, "insOrder");
+        SessionUtil.put(ctx, "insOrder", insOrder);
+
+        ctx.setRequestScopedVar("form", new AcceptForm());
+
+        return new HttpResponse("treatlady.html");
+    }
+
+
+    public HttpResponse seriousall(HttpRequest req, ExecutionContext ctx) {
+        IndexForm indexForm = ctx.getRequestScopedVar("form");
+        InsuranceOrder insOrder = BeanUtil.createAndCopy(InsuranceOrder.class, indexForm);
+
+        SessionUtil.delete(ctx, "insOrder");
+        SessionUtil.put(ctx, "insOrder", insOrder);
+
+        ctx.setRequestScopedVar("form", new AcceptForm());
+
+        return new HttpResponse("cancer.html");
+    }
     /**
      * 本人登録画面を表示する。
      *
