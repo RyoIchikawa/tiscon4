@@ -19,7 +19,7 @@ public class IndexAction {
      * @return HTTPレスポンス
      */
     public HttpResponse index(HttpRequest req, ExecutionContext ctx) {
-        return new HttpResponse("index.html");
+        return new HttpResponse("newtop.html");
     }
 
 }

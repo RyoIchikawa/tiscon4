@@ -53,6 +53,28 @@ public class OrderAction {
         return new HttpResponse("acceptance.html");
     }
 
+
+    /**
+topページから遷移させる
+     */
+    public HttpResponse treatall(HttpRequest req, ExecutionContext ctx) {
+
+
+        return new HttpResponse("treat.html");
+    }
+
+    public HttpResponse ladyall(HttpRequest req, ExecutionContext ctx) {
+
+
+        return new HttpResponse("treatlady.html");
+    }
+
+
+    public HttpResponse seriousall(HttpRequest req, ExecutionContext ctx) {
+
+
+        return new HttpResponse("cancer.html");
+    }
     /**
      * 本人登録画面を表示する。
      *
