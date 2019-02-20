@@ -87,14 +87,20 @@
                                     <label>性別</label>
                                     <p style="color:red;">＊</p>
                                 </td>
+
                                 <td>
+                                <p>
                                     <div th:each="item : ${genderTypes}" class="field"
                                          th:classappend="${errors.hasError('gender')} ? 'error'">
+
                                         <input type="radio" name="gender" th:value="${item.code}"
                                                th:text="${item.label}" th:field="*{gender}"
                                                th:checked="${form.gender}==${item.code}"/>
-
                                     </div>
+                                </p>
+
+
+
                                     <p th:if="${errors.hasError('gender')}" th:text="${errors.getMessage('gender')}"
                                        class="error-message">
                                     </p>
@@ -237,21 +243,17 @@
 
 
                                         <select name="job" id="job">
-
-                                            <!--name="job" th:value="${item.code}" th:text="${item.label}"-->
-                                            <!--th:field="*{job}" th:checked="${form.job}"-->
-
                                             <option value="経営自営">経営・自営</option>
-                                            <option value="会社員">会社員</option>
-                                            <option value="契約派遣">契約・派遣社員</option>
-                                            <option value="公務員">公務員</option>
-                                            <option value="民間団体">民間団体</option>
-                                            <option value="主婦">主婦</option>
-                                            <option value="学生">学生</option>
-                                            <option value="年金受給">年金受給者の方</option>
-                                            <option value="パートアルバイト">パート・アルバイト</option>
-                                            <option value="他有職">その他 (有職)</option>
-                                            <option value="他無職">その他 (無職）</option>
+                                            <option value="会社員"　th:selected="${form.job == '会社員'}" >会社員</option>
+                                            <option value="契約派遣"　th:selected="${form.job == '契約派遣'}">契約・派遣社員</option>
+                                            <option value="公務員"　th:selected="${form.job == '公務員'}">公務員</option>
+                                            <option value="民間団体"　th:selected="${form.job == '民間団体'}">民間団体</option>
+                                            <option value="主婦"　th:selected="${form.job == '主婦'}">主婦</option>
+                                            <option value="学生"　th:selected="${form.job == '学生'}">学生</option>
+                                            <option value="年金受給"　th:selected="${form.job == '年金受給'}">年金受給者の方</option>
+                                            <option value="パートアルバイト"　th:selected="${form.job == 'パートアルバイト'}">パート・アルバイト</option>
+                                            <option value="他有職"　th:selected="${form.job == '他有職'}">その他 (有職)</option>
+                                            <option value="他無職"　th:selected="${form.job == '他無職'}">その他 (無職）</option>
                                         </select>
 
 
